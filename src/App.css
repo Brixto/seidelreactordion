@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+/*button*/
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1em;
+  transition: 0.4s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.panel {
+  padding: 0 18px;
+  display: inline-block;
+  background-color: white;
+  overflow: hidden;
+  border: 1px solid #ddd;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: cover;
+  background-position: center;
+  float: right;
+}
+.icon-left .icon {
+  float: left;
+  margin-right: 1.5em;
+}
+
+.plus {
+  background-image: url("icons/plus.svg");
+}
+.minus {
+  background-image: url("icons/minus.svg");
+}
+
+/* hover + active */
+.active .accordion,
+.accordion:hover {
+  background-color: #ccc;
+}
+
+/* disabled */
+.disabled .accordion {
+  background-color: #f6f6f6;
+  color: #ddd;
+  cursor: not-allowed;
+}
+.disabled .icon {
+  opacity: 0.15;
+}
+
+/* alternative farbe */
+.accordion-item-alternativ .accordion {
+  background-color: #fea;
+}
+.accordion-item-alternativ.active .accordion,
+.accordion-item-alternativ .accordion:hover {
+  background-color: #fd7;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .accordion {
+    font-size: 0.8em;
+    padding: 14px;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .panel {
+    padding: 0 14px;
+    font-size: 0.8em;
   }
-  to {
-    transform: rotate(360deg);
+  .icon {
+    width: 0.75em;
+    height: 0.75em;
   }
 }
